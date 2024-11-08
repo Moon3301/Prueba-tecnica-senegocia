@@ -1,0 +1,16 @@
+<div class="loader-container" *ngIf="isLoading">
+    <div class="loader"></div>
+    <p>Cargando...</p>
+</div>
+
+<div *ngIf="!isLoading">
+    <div *ngIf="characters.length; else noCharacters">
+        <h3>Personajes en este cómic:</h3>
+        <ul>
+            <li *ngFor="let character of characters">{{ character.name }}</li>
+        </ul>
+    </div>
+    <ng-template #noCharacters>
+        <h3>No existen registros de personajes en este comic</h3>
+    </ng-template>
+</div>
